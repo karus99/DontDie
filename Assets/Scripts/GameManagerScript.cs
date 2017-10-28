@@ -27,26 +27,8 @@ public class GameManagerScript : MonoBehaviour
     {
         sceneMasterScript = sceneMaster.GetComponent<SceneMasterScript>();
 
-<<<<<<< HEAD
         LoadNextScene();
-        //sceneMasterScript.LoadScene(0);
-        
-=======
-        sceneMasterScript.LoadScene(0);
-        SetTimeToEnd(sceneMasterScript.sceneTime);
 
-        if(sceneMasterScript.isGameScene)
-        {
-            GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
-            timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
-
-            gameStarted = true;
-        }
-        else // menu scene
-        {
-            MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
-        }
->>>>>>> origin/master
 	}
 	
 	// Update is called once per frame
