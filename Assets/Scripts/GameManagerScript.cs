@@ -69,6 +69,10 @@ public class GameManagerScript : MonoBehaviour
             Debug.Log("Conditions were not met");
         }
         ShowEndGamePanel();
+        if (timeBar != null)
+        {
+            Destroy(timeBar.transform.parent.gameObject);
+        }
         // things to do.
     }
 
@@ -112,5 +116,8 @@ public class GameManagerScript : MonoBehaviour
         SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
         endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState());
     }
-    
+
+    public void FinishGameScene() {
+        timeToEnd = 0.1f;
+    }
 }

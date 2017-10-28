@@ -4,10 +4,12 @@ using System.Collections;
 public class FinishPointScript : MonoBehaviour
 {
     SceneMasterScript sceneMaster;
+    GameManagerScript gameManager;
     // Use this for initialization
     void Start()
     {
         sceneMaster = GameObject.FindObjectOfType<SceneMasterScript>();
+        gameManager = GameObject.FindObjectOfType<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class FinishPointScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        sceneMaster.SetConditionsSate(true);
+        sceneMaster.SetConditionsState(true);
+        gameManager.FinishGameScene();
         Debug.Log("Enter house");
     }
 }

@@ -10,7 +10,7 @@ public class GameplayManagerTemplateScript : MonoBehaviour {
 	void Start () {
 
         sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
-        sceneMaster.GetComponent<SceneMasterScript>().SetConditionsSate(true);
+        sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
 	}
 	
 	// Update is called once per frame

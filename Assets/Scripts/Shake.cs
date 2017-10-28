@@ -38,7 +38,7 @@ public class Shake : MonoBehaviour {
         else
         {
             GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
-            sceneMaster.GetComponent<SceneMasterScript>().SetConditionsSate(true);
+            sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
         }
       
     }

@@ -28,7 +28,7 @@ public class SceneMasterScript : MonoBehaviour {
 
     public void LoadScene(GameObject scenePrefab)
     {
-        SetConditionsSate(false);
+        SetConditionsState(false);
 
         if (sceneLoaded != null)
         {
@@ -61,7 +61,7 @@ public class SceneMasterScript : MonoBehaviour {
         return conditionsMeet;
     }
 
-    public void SetConditionsSate(bool state)
+    public void SetConditionsState(bool state)
     {
         conditionsMeet = state;
     }
