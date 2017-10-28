@@ -16,7 +16,7 @@ public class SceneManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.touchCount == 1)
+        for (int i=0;i< Input.touchCount;i++)
         {
             // touch on screen
             if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -26,11 +26,14 @@ public class SceneManager : MonoBehaviour {
 
             }
         }
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.RightArrow)) {
+           // Debug.Log("Click detected");
+            movePlayerLeft();
+        }
         
     }
-
-
-    public void movePlayerLeft() {
-        playerScript.voidAddForceLeft();
+    
+    private void movePlayerLeft() {
+        playerScript.MoveLeft();
     }
 }
