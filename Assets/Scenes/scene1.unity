@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 295383718}
   - component: {fileID: 295383721}
   - component: {fileID: 295383722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: house_big
   m_TagString: Finish
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 822126712}
   - component: {fileID: 822126711}
   - component: {fileID: 822126715}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -552,6 +552,14 @@ Prefab:
     - target: {fileID: 4158345030821226, guid: afd609f26ef2cc44d94f90b7b15aeb25, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654390036431398, guid: afd609f26ef2cc44d94f90b7b15aeb25, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955982280964466, guid: afd609f26ef2cc44d94f90b7b15aeb25, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afd609f26ef2cc44d94f90b7b15aeb25, type: 2}
