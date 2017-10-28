@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject prefabTimeBar;
+
+    // Buttons
+    public GameObject prefabMainMenuPanel;
+
     public GameObject sceneMaster;
 
     private float originalTimeToEnd = 0.0f;
     private float timeToEnd = 0.0f;
     private RawImage timeBar;
+    private GameObject MainManuPanel;
     private bool gameStarted = false;
 
     // Use this for initialization
@@ -27,6 +32,10 @@ public class GameManagerScript : MonoBehaviour
             timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
 
             gameStarted = true;
+        }
+        else // menu scene
+        {
+            MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
         }
 	}
 	
