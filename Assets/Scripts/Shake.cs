@@ -10,37 +10,58 @@ public class Shake : MonoBehaviour {
     public float shakePwr, shakeDUR;
     public int timesButton = 5;
 
-    public GameObject MainCamera;
+    //shake
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    private float shakeAmount = 0.1f;
+    private float decreaseFactor = 1.0f;
+    float shakeDuration = 0;
+    Vector3 originalCameraPos;
 
-   
-    public float shakeAmount;
+    public GameObject mainCamera;
+
+
     private void Start()
     {
-        MainCamera = GameObject.FindObjectOfType<Camera>().gameObject;
-        ShakeCamera(0.15f, 0.15f);
+       
+        mainCamera = GameObject.FindObjectOfType<Camera>().gameObject;
+        originalCameraPos = mainCamera.transform.localPosition;
+        //ShakeCamera(0.15f, 0.15f);
     }
     void FixedUpdate()
     {
-        float posX = Mathf.SmoothDamp(transform.position.x, MainCamera.transform.position.x, ref velocity.x, smoothTimeX);
-        float posY = Mathf.SmoothDamp(transform.position.y, MainCamera.transform.position.x, ref velocity.y, smoothTimeY);
-
-        MainCamera.transform.position = new Vector3(posX, posY, MainCamera.transform.position.z);
 
     }
 
     private void Update()
     {
-        if(timesButton>0)
+        //new shake
+        if (timesButton > 0)
         {
-            Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
-            MainCamera.transform.position = new Vector3(MainCamera.transform.position.x + ShakePos.x, MainCamera.transform.position.y + ShakePos.y, MainCamera.transform.position.z);
-        }
-        else
+            Vector3 newPosition = originalCameraPos + Random.insideUnitSphere * shakeAmount;
+            newPosition.z = originalCameraPos.z;
+            mainCamera.transform.localPosition = newPosition;
+
+            shakeDuration -= Time.deltaTime * decreaseFactor;
+        }else
         {
-            GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
-            sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
+            shakeDuration = 0f;
+            Vector3 position = originalCameraPos;
+            position.x = mainCamera.transform.position.x;
+            mainCamera.transform.localPosition = position;
         }
-      
+
+        //old shake
+        //if(timesButton>0)
+        //{
+        //    Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
+        //    MainCamera.transform.position = new Vector3(MainCamera.transform.position.x + ShakePos.x, MainCamera.transform.position.y + ShakePos.y, MainCamera.transform.position.z);
+        //}
+        //else
+        //{
+        //    GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
+        //    sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
+        //}
+
     }
 
     public void ShakeCamera(float shakePwr, float shakeDUR)
