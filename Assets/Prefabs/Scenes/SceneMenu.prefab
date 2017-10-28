@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4864015435550890}
   - component: {fileID: 114363582384558390}
-  - component: {fileID: 114270929272633850}
   m_Layer: 0
   m_Name: GameplayController
   m_TagString: GameplayManager
@@ -70,17 +69,6 @@ Transform:
   m_Father: {fileID: 4547995418058606}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114270929272633850
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443583295664336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8facf2b388aa9974989df2c3c05035b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114363582384558390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,3 +82,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 0
   sceneTime: 0
+  title: 
+  content: 
