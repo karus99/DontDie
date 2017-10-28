@@ -17,16 +17,20 @@ public class GameManagerScript : MonoBehaviour
     private RawImage timeBar;
     private GameObject MainManuPanel;
     private bool gameStarted = false;
+    SceneMasterScript sceneMasterScript;
+
+    public GameObject endGamePanelPrefab;
+    private GameObject endGamePanel;
 
     // Use this for initialization
     void Start ()
     {
-        SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
+        sceneMasterScript = sceneMaster.GetComponent<SceneMasterScript>();
 
-        _sceneMaster.LoadScene(0);
-        SetTimeToEnd(_sceneMaster.sceneTime);
+        sceneMasterScript.LoadScene(0);
+        SetTimeToEnd(sceneMasterScript.sceneTime);
 
-        if(_sceneMaster.isGameScene)
+        if(sceneMasterScript.isGameScene)
         {
             GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
             timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
@@ -76,6 +80,26 @@ public class GameManagerScript : MonoBehaviour
         {
             Debug.Log("Conditions were not met");
         }
+        ShowEndGamePanel();
         // things to do.
     }
+
+    public void LoadNextScene() {
+        sceneMasterScript.LoadNextRandomScene();
+    }
+    public void RepeatScene() {
+        sceneMasterScript.RepeatScene();
+    }
+    public void LoadMainMenuScene() {
+        sceneMasterScript.LoadMainMenuScene();
+    }
+
+    public void ShowEndGamePanel()
+    {
+        Transform parent = GameObject.FindObjectOfType<Canvas>().transform;
+        endGamePanel = Instantiate(endGamePanelPrefab, parent);
+        SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
+        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content);
+    }
+
 }

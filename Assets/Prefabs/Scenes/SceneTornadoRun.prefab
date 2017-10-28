@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4421747964071122}
   - component: {fileID: 114466078349372840}
+  - component: {fileID: 114813927106270730}
   m_Layer: 0
   m_Name: ThisLevelManager
   m_TagString: Untagged
@@ -351,6 +352,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ed4ebad2f8f1d48ac47c3667108cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114813927106270730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516224913339936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b972ce3310fbdd4fad3773fb4003ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameScene: 1
+  sceneTime: 5
+  title: You failed tornadoRun
+  content: In case of tornado. You should get to the building as fast as you can and
+    if possible, hide in basement.
 --- !u!114 &114973707682023934
 MonoBehaviour:
   m_ObjectHideFlags: 1
