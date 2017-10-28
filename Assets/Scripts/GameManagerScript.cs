@@ -22,16 +22,9 @@ public class GameManagerScript : MonoBehaviour
     {
         sceneMasterScript = sceneMaster.GetComponent<SceneMasterScript>();
 
-        sceneMasterScript.LoadScene(0);
-        SetTimeToEnd(sceneMasterScript.sceneTime);
-
-        if(sceneMasterScript.isGameScene)
-        {
-            GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
-            timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
-
-            gameStarted = true;
-        }
+        LoadNextScene();
+        //sceneMasterScript.LoadScene(0);
+        
 	}
 	
 	// Update is called once per frame
@@ -75,22 +68,45 @@ public class GameManagerScript : MonoBehaviour
         // things to do.
     }
 
+    private void AddTimeBar() {
+        if (timeBar != null) {
+            Destroy(timeBar.transform.parent.gameObject);
+        }
+
+        if (sceneMasterScript.isGameScene)
+        {
+            
+            GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+            timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
+
+            gameStarted = true;
+        }
+    }
+
     public void LoadNextScene() {
         sceneMasterScript.LoadNextRandomScene();
+        SetTimeToEnd(sceneMasterScript.sceneTime);
+        AddTimeBar();
+        if (endGamePanel != null) Destroy(endGamePanel);
     }
     public void RepeatScene() {
         sceneMasterScript.RepeatScene();
+        SetTimeToEnd(sceneMasterScript.sceneTime);
+        AddTimeBar();
+        if (endGamePanel != null) Destroy(endGamePanel);
     }
     public void LoadMainMenuScene() {
         sceneMasterScript.LoadMainMenuScene();
+        if (endGamePanel != null) Destroy(endGamePanel);
     }
 
     public void ShowEndGamePanel()
     {
+        if (endGamePanel != null) Destroy(endGamePanel);
         Transform parent = GameObject.FindObjectOfType<Canvas>().transform;
         endGamePanel = Instantiate(endGamePanelPrefab, parent);
         SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
-        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content);
+        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState());
     }
-
+    
 }
