@@ -9,10 +9,13 @@ public class SceneMasterScript : MonoBehaviour {
     private GameObject sceneLoaded;
     private bool conditionsMeet = false;
 
-	// Use this for initialization
-	void Start () {
+    // scene settings
+    public bool isGameScene;
+    public float sceneTime;
 
-        LoadScene(scenesToLoad[0]);
+	// Use this for initialization
+	void Start ()
+    {
 	}
 	
 	// Update is called once per frame
@@ -28,6 +31,15 @@ public class SceneMasterScript : MonoBehaviour {
         }
 
         sceneLoaded = Instantiate(scenePrefab);
+
+        SceneSettingsScript sceneSettings = GameObject.FindObjectOfType<SceneSettingsScript>();
+        isGameScene = sceneSettings.isGameScene;
+        sceneTime = sceneSettings.sceneTime;
+    }
+
+    public void LoadScene(int sceneId)
+    {
+        LoadScene(scenesToLoad[sceneId]);
     }
 
     public void UnloadScene()

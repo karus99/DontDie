@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4551899847473992}
   - component: {fileID: 114433784055908776}
+  - component: {fileID: 114025119022718412}
   m_Layer: 0
   m_Name: GameplayManagerTemplate
   m_TagString: GameplayManager
@@ -184,6 +185,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 22.223843, y: 4.1378193}
   m_EdgeRadius: 0
+--- !u!114 &114025119022718412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604965229990848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b972ce3310fbdd4fad3773fb4003ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameScene: 1
+  sceneTime: 30
 --- !u!114 &114433784055908776
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,22 +5,35 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
-    public RawImage timeBar;
+    public GameObject prefabTimeBar;
     public GameObject sceneMaster;
 
     private float originalTimeToEnd = 0.0f;
     private float timeToEnd = 0.0f;
+    private RawImage timeBar;
+    private bool gameStarted = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start ()
+    {
+        SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
 
-        SetTimeToEnd(5.0f);
+        _sceneMaster.LoadScene(0);
+        SetTimeToEnd(_sceneMaster.sceneTime);
+
+        if(_sceneMaster.isGameScene)
+        {
+            GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+            timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
+
+            gameStarted = true;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    if(timeToEnd > 0.0f)
+	    if(timeToEnd > 0.0f && gameStarted)
         {
             timeToEnd -= Time.deltaTime;
 
