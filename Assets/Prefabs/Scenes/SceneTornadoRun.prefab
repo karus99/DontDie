@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 1
   sceneTime: 5
-  title: You failed tornadoRun
+  title: tornado run
   content: In case of tornado. You should get to the building as fast as you can and
     if possible, hide in basement.
 --- !u!114 &114973707682023934

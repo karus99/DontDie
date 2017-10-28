@@ -28,11 +28,13 @@ public class SceneMasterScript : MonoBehaviour {
 
     public void LoadScene(GameObject scenePrefab)
     {
-        if(sceneLoaded != null)
+        SetConditionsSate(false);
+
+        if (sceneLoaded != null)
         {
             UnloadScene();
         }
-
+        loadedScenePrefab = scenePrefab;
         sceneLoaded = Instantiate(scenePrefab);
 
         sceneSettingsLoaded = GameObject.FindObjectOfType<SceneSettingsScript>();
