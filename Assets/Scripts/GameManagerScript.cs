@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour
 {
     public RawImage timeBar;
+    public GameObject sceneMaster;
 
     private float originalTimeToEnd = 0.0f;
     private float timeToEnd = 0.0f;
@@ -22,7 +23,6 @@ public class GameManagerScript : MonoBehaviour
 	    if(timeToEnd > 0.0f)
         {
             timeToEnd -= Time.deltaTime;
-            Debug.Log("Time to End: " + timeToEnd);
 
             float timeRatio = timeToEnd / originalTimeToEnd;
 
@@ -43,6 +43,17 @@ public class GameManagerScript : MonoBehaviour
 
     private void OnTimeEnded()
     {
+        SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
+
+        _sceneMaster.UnloadScene();
+        if(_sceneMaster.GetConditionsState())
+        {
+            Debug.Log("Conditions were met");
+        }
+        else
+        {
+            Debug.Log("Conditions were not met");
+        }
         // things to do.
     }
 }

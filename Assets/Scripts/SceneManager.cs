@@ -16,10 +16,10 @@ public class SceneManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.touchCount == 1)
+        for(int i = 0; i < Input.touchCount; i ++)
         {
             // touch on screen
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
             {
                 Debug.Log("Touch detected");
                 movePlayerLeft();
