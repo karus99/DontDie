@@ -27,9 +27,19 @@ public class GameManagerScript : MonoBehaviour
     {
         sceneMasterScript = sceneMaster.GetComponent<SceneMasterScript>();
 
-        LoadNextScene();
+        LoadMainMenuScene();
 
-	}
+        //sceneMasterScript.LoadScene(0);
+        //SetTimeToEnd(sceneMasterScript.sceneTime);
+
+        //if(sceneMasterScript.isGameScene)
+        //{
+        //    GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+        //    timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
+
+        //    gameStarted = true;
+        //}
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -103,7 +113,10 @@ public class GameManagerScript : MonoBehaviour
         AddTimeBar();
         if (endGamePanel != null) Destroy(endGamePanel);
     }
-    public void LoadMainMenuScene() {
+    public void LoadMainMenuScene()
+    {
+        MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+
         sceneMasterScript.LoadMainMenuScene();
         if (endGamePanel != null) Destroy(endGamePanel);
     }

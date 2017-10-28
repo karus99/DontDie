@@ -15,6 +15,7 @@ public class MenuSceneController : MonoBehaviour {
             buttonStart.onClick.AddListener(delegate { StartGame(); });
         if (buttonExit != null)
             buttonStart.onClick.AddListener(delegate { ExitGame(); });
+
     }
 	
 	// Update is called once per frame
@@ -25,6 +26,10 @@ public class MenuSceneController : MonoBehaviour {
     void StartGame()
     {
         Debug.Log("clicked");
+
+        GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
+        gameManager.LoadNextScene();
+        Destroy(this.gameObject);
     }
 
     void ExitGame()
