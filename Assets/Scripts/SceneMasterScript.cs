@@ -5,8 +5,11 @@ using UnityEngine;
 public class SceneMasterScript : MonoBehaviour {
 
     public GameObject[] scenesToLoad;
+    public GameObject mainMenuScene;
 
+    private GameObject loadedScenePrefab;
     private GameObject sceneLoaded;
+    private SceneSettingsScript sceneSettingsLoaded;
     private bool conditionsMeet = false;
 
     // scene settings
@@ -32,9 +35,9 @@ public class SceneMasterScript : MonoBehaviour {
 
         sceneLoaded = Instantiate(scenePrefab);
 
-        SceneSettingsScript sceneSettings = GameObject.FindObjectOfType<SceneSettingsScript>();
-        isGameScene = sceneSettings.isGameScene;
-        sceneTime = sceneSettings.sceneTime;
+        sceneSettingsLoaded = GameObject.FindObjectOfType<SceneSettingsScript>();
+        isGameScene = sceneSettingsLoaded.isGameScene;
+        sceneTime = sceneSettingsLoaded.sceneTime;
     }
 
     public void LoadScene(int sceneId)
@@ -60,4 +63,23 @@ public class SceneMasterScript : MonoBehaviour {
     {
         conditionsMeet = state;
     }
+
+    public void LoadNextRandomScene() {
+        int sceneId = Random.Range(0, scenesToLoad.Length);
+        LoadScene(scenesToLoad[sceneId]);
+    }
+    public void RepeatScene()
+    {
+        LoadScene(loadedScenePrefab);
+
+    }
+    public void LoadMainMenuScene()
+    {
+        LoadScene(mainMenuScene);
+    }
+
+    public SceneSettingsScript GetSceneSettingsScript() {
+        return sceneSettingsLoaded;
+    }
+
 }

@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 224226120266506952}
   - component: {fileID: 222589559226004142}
   - component: {fileID: 114794059309164722}
+  - component: {fileID: 114531647753587240}
   m_Layer: 5
   m_Name: EndGamePanel
   m_TagString: Untagged
@@ -402,6 +403,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114531647753587240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475809767432520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b330937bcd338b94fa691c464345b894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt_title: {fileID: 114211796047632974}
+  txt_content: {fileID: 114779843486119454}
+  btn_repeatLevel: {fileID: 114028554684007090}
+  btn_mainMenu: {fileID: 114471982919731146}
+  btn_nextLevel: {fileID: 114578072025609480}
 --- !u!114 &114566688451525712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,7 +705,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529683760474868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 191, y: -137.6, z: 0}
+  m_LocalPosition: {x: 187.1, y: -137.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224731708868632240}
@@ -697,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191, y: -137.6}
+  m_AnchoredPosition: {x: 187.1, y: -137.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224564235601533952
