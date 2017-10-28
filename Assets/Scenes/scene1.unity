@@ -256,7 +256,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504642041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 392, y: 229, z: 0}
+  m_LocalPosition: {x: 399.5, y: 163, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -390,8 +390,12 @@ Prefab:
         type: 2}
       propertyPath: scenesToLoad.Array.data[0]
       value: 
-      objectReference: {fileID: 1015923770369722, guid: 25f9650438d460a4e8899b14f442bd01,
+      objectReference: {fileID: 1350824933278508, guid: 5f6d0582e864b8e488ceaab0cc93b268,
         type: 2}
+    - target: {fileID: 1762417961526496, guid: a52b49056c702634a9b0ac9b26cbc677, type: 2}
+      propertyPath: m_TagString
+      value: SceneMaster
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a52b49056c702634a9b0ac9b26cbc677, type: 2}
   m_IsPrefabParent: 0
@@ -460,6 +464,12 @@ Prefab:
       propertyPath: endGamePanelPrefab
       value: 
       objectReference: {fileID: 1475809767432520, guid: 0a425a6392ef6754f913d13b4ef9b7cb,
+        type: 2}
+    - target: {fileID: 114188374314141718, guid: 92000ce7ccd665e49929935ac20094df,
+        type: 2}
+      propertyPath: prefabMainMenuPanel
+      value: 
+      objectReference: {fileID: 1869713361225238, guid: 84f3ed41f69cc334faea61a4ca09a018,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92000ce7ccd665e49929935ac20094df, type: 2}

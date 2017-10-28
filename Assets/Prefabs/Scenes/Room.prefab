@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameScene: 1
-  sceneTime: 10
+  sceneTime: 4
   title: 
   content: 
 --- !u!114 &114664759963265604
