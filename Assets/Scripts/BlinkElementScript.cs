@@ -6,6 +6,7 @@ public class BlinkElementScript : MonoBehaviour
 {
     private float currColor = 1.0f;
     private bool dir = true;
+    private float colorStep=0.02f;
 
     private SpriteRenderer sRenderer;
     // Use this for initialization
@@ -19,7 +20,7 @@ public class BlinkElementScript : MonoBehaviour
     {
         if(!dir)
         {
-            currColor += 0.04f;
+            currColor += colorStep;
 
             if (currColor >= 1.0f)
             {
@@ -29,12 +30,12 @@ public class BlinkElementScript : MonoBehaviour
         }
         else
         {
-            currColor -= 0.04f;
+            currColor -= colorStep;
 
             if (currColor <= 0.5f)
             {
                 dir = !dir;
-                currColor = 0.7f;
+                currColor = 0.5f;
             }
         }
         sRenderer.color = new Color(currColor, currColor, currColor);

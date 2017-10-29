@@ -399,13 +399,13 @@ Prefab:
         type: 2}
       propertyPath: scenesToLoad.Array.data[1]
       value: 
-      objectReference: {fileID: 1015923770369722, guid: 25f9650438d460a4e8899b14f442bd01,
+      objectReference: {fileID: 1155850909859794, guid: ff44179bcf479564ba8fb1be4be687c1,
         type: 2}
     - target: {fileID: 114671352607021706, guid: a52b49056c702634a9b0ac9b26cbc677,
         type: 2}
       propertyPath: scenesToLoad.Array.data[0]
       value: 
-      objectReference: {fileID: 1069845249423892, guid: 5f6d0582e864b8e488ceaab0cc93b268,
+      objectReference: {fileID: 1762542144470508, guid: ca7d0322f0e6aff4b86e85104b9c5fc7,
         type: 2}
     - target: {fileID: 114671352607021706, guid: a52b49056c702634a9b0ac9b26cbc677,
         type: 2}
@@ -417,6 +417,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114671352607021706, guid: a52b49056c702634a9b0ac9b26cbc677,
+        type: 2}
+      propertyPath: scenesToLoad.Array.data[2]
+      value: 
+      objectReference: {fileID: 1015923770369722, guid: 25f9650438d460a4e8899b14f442bd01,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a52b49056c702634a9b0ac9b26cbc677, type: 2}
   m_IsPrefabParent: 0
