@@ -14,7 +14,7 @@ public class MenuSceneController : MonoBehaviour {
         if(buttonStart != null)
             buttonStart.onClick.AddListener(delegate { StartGame(); });
         if (buttonExit != null)
-            buttonStart.onClick.AddListener(delegate { ExitGame(); });
+            buttonExit.onClick.AddListener(delegate { ExitGame(); });
 
     }
 	
