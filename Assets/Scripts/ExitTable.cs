@@ -8,5 +8,7 @@ public class ExitTable : MonoBehaviour {
     {
         GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
         sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(false);
+        GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
+        gameManager.FinishGameScene();
     }
 }
