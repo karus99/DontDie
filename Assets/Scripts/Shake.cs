@@ -52,19 +52,6 @@ public class Shake : MonoBehaviour {
             GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
             gameManager.FinishGameScene();
         }
-
-        //old shake
-        //if(timesButton>0)
-        //{
-        //    Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
-        //    MainCamera.transform.position = new Vector3(MainCamera.transform.position.x + ShakePos.x, MainCamera.transform.position.y + ShakePos.y, MainCamera.transform.position.z);
-        //}
-        //else
-        //{
-        //    GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
-        //    sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
-        //}
-
     }
 
     public void ShakeCamera(float shakePwr, float shakeDUR)
