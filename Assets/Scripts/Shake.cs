@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Shake : MonoBehaviour {
 
-    public Vector2 velocity;
-    public float smoothTimeY;
-    public float smoothTimeX;
-    public float shakePwr, shakeDUR;
-    public int timesButton = 5;
+    public int timesButton = 8;
 
     //shake
     // Amplitude of the shake. A larger value shakes the camera harder.
@@ -16,6 +12,7 @@ public class Shake : MonoBehaviour {
     private float decreaseFactor = 1.0f;
     float shakeDuration = 0;
     Vector3 originalCameraPos;
+    bool finished = false;
 
     public GameObject mainCamera;
 
@@ -42,15 +39,18 @@ public class Shake : MonoBehaviour {
             mainCamera.transform.localPosition = newPosition;
 
             shakeDuration -= Time.deltaTime * decreaseFactor;
-        }else
+        }else if(!finished)
         {
+            finished = true;
             shakeDuration = 0f;
             Vector3 position = originalCameraPos;
             position.x = mainCamera.transform.position.x;
             mainCamera.transform.localPosition = position;
 
-            GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
-            sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
+            SceneMasterScript sceneMaster = GameObject.FindObjectOfType<SceneMasterScript>();
+            sceneMaster.SetConditionsState(true);
+            GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
+            gameManager.FinishGameScene();
         }
 
         //old shake

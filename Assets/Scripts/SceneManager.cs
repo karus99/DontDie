@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour {
     private GameObject player;
     PlayerScript playerScript;
+
     // Use this for initialization
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
