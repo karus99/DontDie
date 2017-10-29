@@ -25,8 +25,6 @@ public class MenuSceneController : MonoBehaviour {
 
     void StartGame()
     {
-        Debug.Log("clicked");
-
         GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
         gameManager.LoadNextScene();
         Destroy(this.gameObject);
