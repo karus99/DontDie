@@ -248,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 1020071015874882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.9069905, y: 0.065823436, z: 0.0050740615}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 4295135216121968}
   - {fileID: 4279869236192746}
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986718509256888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: 0.85, z: 0.04961344}
+  m_LocalPosition: {x: 7.6103797, y: 1.5581667, z: 0.04961344}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4257154536689874}
@@ -337,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 1436996424315582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.9069905, y: 0.065823436, z: 0.0050740615}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 4966103505978856}
   m_Father: {fileID: 4388928037915558}
@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1040294280053500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.66, y: 3.68, z: -0.16796875}
+  m_LocalPosition: {x: -0.66, y: 3.73, z: -0.16796875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4295135216121968}
@@ -571,8 +571,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 1
   sceneTime: 10
-  title: 
-  content: 
+  title: elevator
+  content: In case of beeing in elevator during earthquake, press all buttons to get
+    off the elevator on nearest floor.
 --- !u!114 &114232314946208948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,8 +624,7 @@ MonoBehaviour:
   shakePwr: 0
   shakeDUR: 0
   timesButton: 5
-  MainCamera: {fileID: 0}
-  shakeAmount: 0
+  mainCamera: {fileID: 0}
 --- !u!114 &114678251451464762
 MonoBehaviour:
   m_ObjectHideFlags: 1
