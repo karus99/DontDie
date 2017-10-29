@@ -48,6 +48,9 @@ public class Shake : MonoBehaviour {
             Vector3 position = originalCameraPos;
             position.x = mainCamera.transform.position.x;
             mainCamera.transform.localPosition = position;
+
+            GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
+            sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);
         }
 
         //old shake
