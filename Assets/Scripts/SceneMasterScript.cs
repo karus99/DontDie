@@ -67,8 +67,13 @@ public class SceneMasterScript : MonoBehaviour {
     }
 
     public void LoadNextRandomScene() {
-        int sceneId = Random.Range(0, scenesToLoad.Length);
-        LoadScene(scenesToLoad[sceneId]);
+        GameObject nextScene;
+        do
+        {
+            int sceneId = Random.Range(0, scenesToLoad.Length);
+            nextScene = scenesToLoad[sceneId];
+        } while (scenesToLoad.Length>1 && nextScene.Equals(loadedScenePrefab));
+        LoadScene(nextScene);
     }
     public void RepeatScene()
     {

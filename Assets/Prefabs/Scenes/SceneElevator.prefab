@@ -660,11 +660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bcef5898f382a44b720f9d71ba6cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
-  smoothTimeY: 0
-  smoothTimeX: 0
-  shakePwr: 0
-  shakeDUR: 0
   timesButton: 8
   mainCamera: {fileID: 0}
 --- !u!114 &114210696891336758
@@ -713,7 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 1
   sceneTime: 4
-  title: elevator
+  title: earthquake
   content: In case of beeing in elevator during earthquake, press all buttons to get
     off the elevator on nearest floor.
 --- !u!114 &114554045196847574

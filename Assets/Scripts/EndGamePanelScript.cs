@@ -20,14 +20,14 @@ public class EndGamePanelScript : MonoBehaviour
     public void SetAll(string title, string content, GameManagerScript gameManager,bool conditionMet) {
         if (conditionMet)
         {
-            txt_title.text = "Nice! You did well on ";
+            txt_title.text = "Nice! You know how to react in case of ";
             txt_content.text = "";
             btn_repeatLevel.gameObject.SetActive(false);
         }
         else {
-            txt_title.text = "You died on ";
-            txt_content.text = content;
+            txt_title.text = "Oh! You dont know what to do in case of ";
         }
+        txt_content.text = content;
         txt_title.text += title+".";
         
         btn_repeatLevel.onClick.AddListener(delegate { gameManager.RepeatScene(); });
