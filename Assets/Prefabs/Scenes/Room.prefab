@@ -357,8 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 1
   sceneTime: 4
-  title: 
-  content: 
+  title: Earthquake
+  content: Stay away from windows and shelves with heavy objects.
 --- !u!212 &212114705460211962
 SpriteRenderer:
   m_ObjectHideFlags: 1
