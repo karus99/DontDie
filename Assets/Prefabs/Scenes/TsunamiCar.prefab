@@ -247,7 +247,7 @@ Transform:
   - {fileID: 4218818031447508}
   - {fileID: 4751318654169852}
   m_Father: {fileID: 4593581173936826}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4402169028595588
 Transform:
@@ -274,8 +274,8 @@ Transform:
   m_Children:
   - {fileID: 4969056685896968}
   - {fileID: 4402169028595588}
-  - {fileID: 4714934106557064}
   - {fileID: 4373637330295034}
+  - {fileID: 4714934106557064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -293,7 +293,7 @@ Transform:
   - {fileID: 4050420339034984}
   - {fileID: 4781130322614282}
   m_Father: {fileID: 4593581173936826}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4751318654169852
 Transform:
@@ -359,7 +359,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19142127, y: -0.06380701}
+  m_Offset: {x: -0.37862468, y: 1.6317148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -370,7 +370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8958488, y: 1.7670274}
+  m_Size: {x: 4.796003, y: 5.1580715}
   m_EdgeRadius: 0
 --- !u!61 &61685730064488936
 BoxCollider2D:
@@ -384,7 +384,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5615033, y: 0.06380701}
+  m_Offset: {x: -0.31549048, y: 1.8031788}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -395,7 +395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5130064, y: 1.5117974}
+  m_Size: {x: 4.266994, y: 4.9905415}
   m_EdgeRadius: 0
 --- !u!61 &61837852574166764
 BoxCollider2D:
@@ -409,7 +409,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025523305, y: 0}
+  m_Offset: {x: 1.1217656, y: 1.5055065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -420,7 +420,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.579149, y: 1.39}
+  m_Size: {x: 5.771634, y: 4.401013}
   m_EdgeRadius: 0
 --- !u!82 &82263588958670486
 AudioSource:
