@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
+    int lives =3;
     public GameObject prefabTimeBar;
 
     // Buttons
@@ -69,16 +70,20 @@ public class GameManagerScript : MonoBehaviour
     {
         SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
 
+        bool liveLost;
         _sceneMaster.UnloadScene();
         if(_sceneMaster.GetConditionsState())
         {
             Debug.Log("Conditions were met");
+            liveLost = false;
         }
         else
         {
+            lives--;
+            liveLost = true;
             Debug.Log("Conditions were not met");
         }
-        ShowEndGamePanel();
+        ShowEndGamePanel(lives,liveLost);
         if (timeBar != null)
         {
             Destroy(timeBar.transform.parent.gameObject);
@@ -121,13 +126,13 @@ public class GameManagerScript : MonoBehaviour
         if (endGamePanel != null) Destroy(endGamePanel);
     }
 
-    public void ShowEndGamePanel()
+    public void ShowEndGamePanel(int lives, bool liveLost)
     {
         if (endGamePanel != null) Destroy(endGamePanel);
         Transform parent = GameObject.FindObjectOfType<Canvas>().transform;
         endGamePanel = Instantiate(endGamePanelPrefab, parent);
         SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
-        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState());
+        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState(),lives,liveLost);
     }
 
     public void FinishGameScene() {
