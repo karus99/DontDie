@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4838327315066994}
   m_Layer: 0
-  m_Name: SceneTornadoRun
+  m_Name: TornadoRun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

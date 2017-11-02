@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deleteElevator : MonoBehaviour {
-
+public class ElevatorOuterScript : MonoBehaviour
+{
     public GameObject buttons;
 
     private void OnMouseDown()
     {
-        this.gameObject.SetActive(false);
         this.buttons.SetActive(true);
+        Destroy(this.gameObject);
     }
-
 }

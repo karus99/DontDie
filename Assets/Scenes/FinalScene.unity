@@ -325,8 +325,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546462981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 441.5, y: 209.5, z: 0}
-  m_LocalScale: {x: 1.10375, y: 1.10375, z: 1.10375}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -457,7 +457,7 @@ Prefab:
         type: 2}
       propertyPath: scenesToLoad.Array.data[1]
       value: 
-      objectReference: {fileID: 1155850909859794, guid: ff44179bcf479564ba8fb1be4be687c1,
+      objectReference: {fileID: 1155850909859794, guid: d3b17cb1855174847b84a69262577b44,
         type: 2}
     - target: {fileID: 114671352607021706, guid: a52b49056c702634a9b0ac9b26cbc677,
         type: 2}
