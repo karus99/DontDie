@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuSceneController : MonoBehaviour {
+public class MenuSceneController : MonoBehaviour
+{
 
     public Button buttonStart;
     public Button buttonExit;
@@ -15,13 +16,7 @@ public class MenuSceneController : MonoBehaviour {
             buttonStart.onClick.AddListener(delegate { StartGame(); });
         if (buttonExit != null)
             buttonExit.onClick.AddListener(delegate { ExitGame(); });
-
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void StartGame()
     {

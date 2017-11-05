@@ -29,7 +29,6 @@ public class EarthquakeElevatorScript: MonoBehaviour {
         }
         else
         {
-            Vector3 position = originalCameraPos;
             mainCamera.transform.localPosition = originalCameraPos;
 
             SceneMasterScript sceneMaster = GameObject.FindObjectOfType<SceneMasterScript>();

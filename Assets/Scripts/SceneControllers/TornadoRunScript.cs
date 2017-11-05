@@ -2,39 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour {
+public class TornadoRunScript: MonoBehaviour
+{
     private GameObject player;
-    PlayerScript playerScript;
+    TornadoRunPlayerScript playerScript;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<PlayerScript>();
+        playerScript = player.GetComponent<TornadoRunPlayerScript>();
     }
 
-
-  
     // Update is called once per frame
-    void Update() {
-        
+    void Update()
+    {
+#if UNITY_ANDROID
         for(int i = 0; i < Input.touchCount; i ++)
         {
             // touch on screen
             if (Input.GetTouch(i).phase == TouchPhase.Began)
             {
-                Debug.Log("Touch detected");
                 movePlayerLeft();
-
+                break;
             }
         }
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.RightArrow)) {
-           // Debug.Log("Click detected");
+#endif
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
             movePlayerLeft();
         }
-        
+#endif
     }
     
-    private void movePlayerLeft() {
+    private void movePlayerLeft()
+    {
         playerScript.MoveLeft();
     }
 }
