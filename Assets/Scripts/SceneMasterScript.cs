@@ -38,8 +38,15 @@ public class SceneMasterScript : MonoBehaviour {
         sceneLoaded = Instantiate(scenePrefab);
 
         sceneSettingsLoaded = GameObject.FindObjectOfType<SceneSettingsScript>();
-        isGameScene = sceneSettingsLoaded.isGameScene;
-        sceneTime = sceneSettingsLoaded.sceneTime;
+        if(sceneSettingsLoaded)
+        {
+            isGameScene = sceneSettingsLoaded.isGameScene;
+            sceneTime = sceneSettingsLoaded.sceneTime;
+        }
+        else
+        {
+            isGameScene = false;
+        }
     }
 
     public void LoadScene(int sceneId)
