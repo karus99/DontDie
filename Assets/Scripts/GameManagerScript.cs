@@ -15,6 +15,7 @@ public class GameManagerScript : MonoBehaviour
 
     private float originalTimeToEnd = 0.0f;
     private float timeToEnd = 0.0f;
+    private float timeOnLevelEnd;
     private RawImage timeBar;
     private GameObject MainManuPanel;
     private bool gameStarted = false;
@@ -22,6 +23,9 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject endGamePanelPrefab;
     private GameObject endGamePanel;
+
+    //Player
+    int playerPoints;
 
     // Use this for initialization
     void Start ()
@@ -43,6 +47,7 @@ public class GameManagerScript : MonoBehaviour
     }
 	
 	// Update is called once per frame
+
 	void Update ()
     {
 	    if(timeToEnd > 0.0f && gameStarted)
@@ -70,12 +75,15 @@ public class GameManagerScript : MonoBehaviour
     {
         SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
 
+        int pointsForLevel = 0;
         bool liveLost;
         _sceneMaster.UnloadScene();
         if(_sceneMaster.GetConditionsState())
         {
             Debug.Log("Conditions were met");
             liveLost = false;
+            pointsForLevel = CalculateLevelPoints();
+            playerPoints += pointsForLevel;
         }
         else
         {
@@ -83,12 +91,27 @@ public class GameManagerScript : MonoBehaviour
             liveLost = true;
             Debug.Log("Conditions were not met");
         }
-        ShowEndGamePanel(lives,liveLost);
+        ShowEndGamePanel(lives,liveLost,pointsForLevel);
         if (timeBar != null)
         {
             Destroy(timeBar.transform.parent.gameObject);
         }
         // things to do.
+    }
+
+    private int CalculateLevelPoints() {
+        SceneSettingsScript sceeneSettings= sceneMasterScript.GetSceneSettingsScript();
+        int points = 0; ;
+
+        if (sceeneSettings.pointsCountingType.Equals(PointsCountingType.Time))
+        {
+            float pointsForSecond = 50;
+            points = (int)Mathf.Round(timeOnLevelEnd * pointsForSecond / 5.0f) * 5;
+        }
+        else if(sceeneSettings.pointsCountingType.Equals(PointsCountingType.Finish)){
+            points = sceeneSettings.pointsForLevel;
+        }
+        return points;
     }
 
     private void AddTimeBar() {
@@ -104,6 +127,11 @@ public class GameManagerScript : MonoBehaviour
 
             gameStarted = true;
         }
+    }
+
+    public void StartGame() {
+        playerPoints = 0;
+        LoadNextScene();
     }
 
     public void LoadNextScene() {
@@ -126,16 +154,17 @@ public class GameManagerScript : MonoBehaviour
         if (endGamePanel != null) Destroy(endGamePanel);
     }
 
-    public void ShowEndGamePanel(int lives, bool liveLost)
+    public void ShowEndGamePanel(int lives, bool liveLost, int pointsForLevel)
     {
         if (endGamePanel != null) Destroy(endGamePanel);
         Transform parent = GameObject.FindObjectOfType<Canvas>().transform;
         endGamePanel = Instantiate(endGamePanelPrefab, parent);
         SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
-        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState(),lives,liveLost);
+        endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState(),lives,liveLost, pointsForLevel,playerPoints-pointsForLevel);
     }
 
     public void FinishGameScene() {
+        timeOnLevelEnd = timeToEnd;
         timeToEnd = 0.1f;
     }
 }

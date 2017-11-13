@@ -8,6 +8,8 @@ public class SceneSettingsScript : MonoBehaviour
     public float sceneTime;
     public string title;
     public string content;
+    public PointsCountingType pointsCountingType;
+    public int pointsForLevel;
 
     // Use this for initialization
     void Start () {
