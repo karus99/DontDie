@@ -438,7 +438,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -605,6 +605,8 @@ MonoBehaviour:
   title: tornado
   content: In case of tornado. You should get to the building as fast as you can and
     if possible, hide in basement.
+  pointsCountingType: 0
+  pointsForLevel: 0
 --- !u!114 &114933544225567702
 MonoBehaviour:
   m_ObjectHideFlags: 1

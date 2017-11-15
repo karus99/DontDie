@@ -51,5 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074aea732031798418caab3cc8c86a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBar: {fileID: 0}
+  prefabTimeBar: {fileID: 1824802599463974, guid: 1b7d04afbfcd2f240af778a4e2997f49,
+    type: 2}
+  prefabMainMenuPanel: {fileID: 1869713361225238, guid: 84f3ed41f69cc334faea61a4ca09a018,
+    type: 2}
   sceneMaster: {fileID: 0}
+  endGamePanelPrefab: {fileID: 1335160675460366, guid: bd259cc967e0896468ab9513735f4748,
+    type: 2}
+  pauseGamePanelPrefab: {fileID: 1292671155363740, guid: 9c64a724b4845c94492487e6a794cadc,
+    type: 2}
+  pauseGameButtonPrefab: {fileID: 0}
+  pauseGameButton: {fileID: 0}

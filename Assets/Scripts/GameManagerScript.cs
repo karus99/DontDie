@@ -23,9 +23,20 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject endGamePanelPrefab;
     private GameObject endGamePanel;
+    public GameObject pauseGamePanelPrefab;
+    private GameObject pauseGamePanel;
+    public GameObject pauseGameButtonPrefab;
+    public Button pauseGameButton;
 
+    private bool gamePaused=false;
     //Player
     int playerPoints;
+
+    private void Awake()
+    {
+        pauseGameButton = Instantiate(pauseGameButtonPrefab, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>()).GetComponent<Button>();
+        pauseGameButton.onClick.AddListener(delegate { PauseGame(true); });
+    }
 
     // Use this for initialization
     void Start ()
@@ -33,24 +44,14 @@ public class GameManagerScript : MonoBehaviour
         sceneMasterScript = sceneMaster.GetComponent<SceneMasterScript>();
 
         LoadMainMenuScene();
-
-        //sceneMasterScript.LoadScene(0);
-        //SetTimeToEnd(sceneMasterScript.sceneTime);
-
-        //if(sceneMasterScript.isGameScene)
-        //{
-        //    GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
-        //    timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
-
-        //    gameStarted = true;
-        //}
+        
     }
 	
 	// Update is called once per frame
 
 	void Update ()
     {
-	    if(timeToEnd > 0.0f && gameStarted)
+	    if(timeBar!=null && timeToEnd > 0.0f && gameStarted)
         {
             timeToEnd -= Time.deltaTime;
 
@@ -73,12 +74,10 @@ public class GameManagerScript : MonoBehaviour
 
     private void OnTimeEnded()
     {
-        SceneMasterScript _sceneMaster = sceneMaster.GetComponent<SceneMasterScript>();
-
         int pointsForLevel = 0;
         bool liveLost;
-        _sceneMaster.UnloadScene();
-        if(_sceneMaster.GetConditionsState())
+        sceneMasterScript.UnloadScene();
+        if(sceneMasterScript.GetConditionsState())
         {
             Debug.Log("Conditions were met");
             liveLost = false;
@@ -131,16 +130,20 @@ public class GameManagerScript : MonoBehaviour
 
     public void StartGame() {
         playerPoints = 0;
+        lives = 3;
         LoadNextScene();
+        pauseGameButton.gameObject.SetActive(true);
     }
 
     public void LoadNextScene() {
+        pauseGameButton.gameObject.SetActive(true);
         sceneMasterScript.LoadNextRandomScene();
         SetTimeToEnd(sceneMasterScript.sceneTime);
         AddTimeBar();
         if (endGamePanel != null) Destroy(endGamePanel);
     }
     public void RepeatScene() {
+        pauseGameButton.gameObject.SetActive(true);
         sceneMasterScript.RepeatScene();
         SetTimeToEnd(sceneMasterScript.sceneTime);
         AddTimeBar();
@@ -148,14 +151,21 @@ public class GameManagerScript : MonoBehaviour
     }
     public void LoadMainMenuScene()
     {
-        MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
 
+        if (timeBar != null)
+        {
+            Destroy(timeBar.transform.parent.gameObject);
+        }
+        sceneMasterScript.UnloadScene();
+        pauseGameButton.gameObject.SetActive(false);
+        MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
         sceneMasterScript.LoadMainMenuScene();
         if (endGamePanel != null) Destroy(endGamePanel);
     }
 
     public void ShowEndGamePanel(int lives, bool liveLost, int pointsForLevel)
     {
+        pauseGameButton.gameObject.SetActive(false);
         if (endGamePanel != null) Destroy(endGamePanel);
         Transform parent = GameObject.FindObjectOfType<Canvas>().transform;
         endGamePanel = Instantiate(endGamePanelPrefab, parent);
@@ -167,4 +177,20 @@ public class GameManagerScript : MonoBehaviour
         timeOnLevelEnd = timeToEnd;
         timeToEnd = 0.1f;
     }
+
+    public void PauseGame(bool value) {
+        gamePaused = value;
+        if (gamePaused)
+        {
+            pauseGamePanel = Instantiate(pauseGamePanelPrefab, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+            pauseGameButton.gameObject.SetActive(false);
+            Time.timeScale = 0;
+        }
+        else {
+            pauseGameButton.gameObject.SetActive(true);
+            if (pauseGamePanel != null) Destroy(pauseGamePanel);
+            Time.timeScale = 1;
+        }
+    }
+
 }

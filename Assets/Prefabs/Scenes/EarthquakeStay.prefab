@@ -211,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07267785, y: -0.21802545}
+  m_Offset: {x: 0.011537313, y: -0.3577745}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -222,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.90138, y: 3.4681158}
+  m_Size: {x: 7.779099, y: 3.1886177}
   m_EdgeRadius: 0
 --- !u!61 &61470195985317258
 BoxCollider2D:
@@ -236,7 +236,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014939547, y: 0.0000017285347}
+  m_Offset: {x: 0.041142464, y: 0.017471135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -247,7 +247,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.089294, y: 0.7045078}
+  m_Size: {x: 1.3862619, y: 0.9141331}
   m_EdgeRadius: 0
 --- !u!61 &61551766703494460
 BoxCollider2D:
@@ -287,7 +287,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -367,7 +367,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -509,8 +509,10 @@ MonoBehaviour:
   isGameScene: 1
   sceneTime: 4
   title: earthquake
-  content: Hide under table or something strong and stay away from windows, shelves
-    with heavy objects etc.
+  content: During earthquake hide under table or something strong and stay away from
+    windows, shelves with heavy objects etc.
+  pointsCountingType: 1
+  pointsForLevel: 150
 --- !u!212 &212114705460211962
 SpriteRenderer:
   m_ObjectHideFlags: 1

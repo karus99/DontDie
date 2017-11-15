@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4568593862949574}
   m_Layer: 0
-  m_Name: TestScene
+  m_Name: _DEBUGSCENE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,6 +198,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameScene: 1
   sceneTime: 30
+  title: 
+  content: 
+  pointsCountingType: 0
+  pointsForLevel: 0
 --- !u!114 &114433784055908776
 MonoBehaviour:
   m_ObjectHideFlags: 1
