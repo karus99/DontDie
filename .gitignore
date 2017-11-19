@@ -82,3 +82,5 @@ $RECYCLE.BIN/
 .vs/
 Assets/Graphics/_psd/tornado_bckg.psd.meta
 Assets/Graphics/_psd/
+**/_psd/*
+_psd.meta
