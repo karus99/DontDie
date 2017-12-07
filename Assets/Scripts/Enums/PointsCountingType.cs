@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
-
-public enum PointsCountingType 
+﻿public enum PointsCountingType 
 {
     Time,
     Finish
