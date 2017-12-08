@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour
 {
     int lives =3;
     public GameObject prefabTimeBar;
+    public GameObject prefabLevelTip;
 
     // Buttons
     public GameObject prefabMainMenuPanel;
@@ -17,6 +18,7 @@ public class GameManagerScript : MonoBehaviour
     private float timeToEnd = 0.0f;
     private float timeOnLevelEnd;
     private RawImage timeBar;
+    private Text txtLevelTip;
     private bool gameStarted = false;
     SceneMasterScript sceneMasterScript;
 
@@ -90,10 +92,12 @@ public class GameManagerScript : MonoBehaviour
             Debug.Log("Conditions were not met");
         }
         ShowEndGamePanel(lives,liveLost,pointsForLevel);
+
         if (timeBar != null)
-        {
             Destroy(timeBar.transform.parent.gameObject);
-        }
+
+        if (txtLevelTip != null)
+            Destroy(txtLevelTip.gameObject);
         // things to do.
     }
 
@@ -112,14 +116,15 @@ public class GameManagerScript : MonoBehaviour
         return points;
     }
 
-    private void AddTimeBar() {
-        if (timeBar != null) {
+    private void AddTimeBar()
+    {
+        if (timeBar != null)
+        {
             Destroy(timeBar.transform.parent.gameObject);
         }
 
         if (sceneMasterScript.isGameScene)
         {
-            
             GameObject _timeBar = Instantiate(prefabTimeBar, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
             timeBar = _timeBar.transform.GetChild(0).GetComponent<RawImage>();
 
@@ -127,21 +132,45 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void StartGame() {
+    private void AddLevelTip(string tip)
+    {
+        if(txtLevelTip != null)
+        {
+            Destroy(txtLevelTip.gameObject);
+        }
+
+        if(!sceneMasterScript.isGameScene)
+        {
+            return;
+        }
+
+        GameObject objLevelTip = Instantiate(prefabLevelTip, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+        txtLevelTip = objLevelTip.GetComponent<Text>();
+        txtLevelTip.text = tip;
+    }
+
+    public void StartGame()
+    {
         playerPoints = 0;
         lives = 3;
         LoadNextScene();
         pauseGameButton.gameObject.SetActive(true);
     }
 
-    public void LoadNextScene() {
+    public void LoadNextScene()
+    {
         pauseGameButton.gameObject.SetActive(true);
         sceneMasterScript.LoadNextRandomScene();
         SetTimeToEnd(sceneMasterScript.sceneTime);
         AddTimeBar();
+
+        SceneSettingsScript sceneSettings = sceneMasterScript.GetSceneSettingsScript();
+        AddLevelTip(sceneSettings.levelTip);
         if (endGamePanel != null) Destroy(endGamePanel);
     }
-    public void RepeatScene() {
+
+    public void RepeatScene()
+    {
         pauseGameButton.gameObject.SetActive(true);
         sceneMasterScript.RepeatScene();
         SetTimeToEnd(sceneMasterScript.sceneTime);
@@ -173,7 +202,8 @@ public class GameManagerScript : MonoBehaviour
         endGamePanel.GetComponent<EndGamePanelScript>().SetAll(sceneSettings.title,sceneSettings.content,this,sceneMasterScript.GetConditionsState(),lives,liveLost, pointsForLevel,playerPoints-pointsForLevel);
     }
 
-    public void FinishGameScene() {
+    public void FinishGameScene()
+    {
         timeOnLevelEnd = timeToEnd;
         timeToEnd = 0.1f;
     }

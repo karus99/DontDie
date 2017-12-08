@@ -166,7 +166,7 @@ Prefab:
         type: 2}
       propertyPath: endGamePanelPrefab
       value: 
-      objectReference: {fileID: 1475809767432520, guid: 0a425a6392ef6754f913d13b4ef9b7cb,
+      objectReference: {fileID: 1335160675460366, guid: bd259cc967e0896468ab9513735f4748,
         type: 2}
     - target: {fileID: 114188374314141718, guid: 92000ce7ccd665e49929935ac20094df,
         type: 2}
@@ -178,6 +178,18 @@ Prefab:
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 114188374314141718, guid: 92000ce7ccd665e49929935ac20094df,
+        type: 2}
+      propertyPath: prefabLevelTip
+      value: 
+      objectReference: {fileID: 1470680597201600, guid: 81dc7c2c9edd335438decae4f6e8f12b,
+        type: 2}
+    - target: {fileID: 114188374314141718, guid: 92000ce7ccd665e49929935ac20094df,
+        type: 2}
+      propertyPath: pauseGameButtonPrefab
+      value: 
+      objectReference: {fileID: 1739301585212514, guid: d98c96aa8c2795f45b70cbcb142a150b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92000ce7ccd665e49929935ac20094df, type: 2}
   m_IsPrefabParent: 0

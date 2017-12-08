@@ -513,6 +513,7 @@ MonoBehaviour:
     windows, shelves with heavy objects etc.
   pointsCountingType: 1
   pointsForLevel: 150
+  levelTip: Stay
 --- !u!212 &212114705460211962
 SpriteRenderer:
   m_ObjectHideFlags: 1

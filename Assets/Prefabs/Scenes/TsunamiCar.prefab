@@ -549,6 +549,9 @@ MonoBehaviour:
   title: tsunami
   content: In case of tsunami get away from the sea as fast as possible. Cities may
     be full of traffic and beach is really not a place to stay during tsunami.
+  pointsCountingType: 0
+  pointsForLevel: 0
+  levelTip: Go High
 --- !u!114 &114096869966448586
 MonoBehaviour:
   m_ObjectHideFlags: 1

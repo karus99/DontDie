@@ -607,6 +607,7 @@ MonoBehaviour:
     if possible, hide in basement.
   pointsCountingType: 0
   pointsForLevel: 0
+  levelTip: Run
 --- !u!114 &114933544225567702
 MonoBehaviour:
   m_ObjectHideFlags: 1

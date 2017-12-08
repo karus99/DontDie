@@ -695,6 +695,9 @@ MonoBehaviour:
   title: earthquake
   content: In case of beeing in elevator during earthquake, press all buttons to get
     off the elevator on nearest floor.
+  pointsCountingType: 0
+  pointsForLevel: 0
+  levelTip: Get out
 --- !u!114 &114554045196847574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,8 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bcef5898f382a44b720f9d71ba6cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timesButton: 8
-  mainCamera: {fileID: 0}
+  buttonsLeft: 8
 --- !u!114 &114961233245213468
 MonoBehaviour:
   m_ObjectHideFlags: 1
