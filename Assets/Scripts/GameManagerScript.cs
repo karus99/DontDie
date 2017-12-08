@@ -17,7 +17,6 @@ public class GameManagerScript : MonoBehaviour
     private float timeToEnd = 0.0f;
     private float timeOnLevelEnd;
     private RawImage timeBar;
-    private GameObject MainManuPanel;
     private bool gameStarted = false;
     SceneMasterScript sceneMasterScript;
 
@@ -149,6 +148,7 @@ public class GameManagerScript : MonoBehaviour
         AddTimeBar();
         if (endGamePanel != null) Destroy(endGamePanel);
     }
+
     public void LoadMainMenuScene()
     {
 
@@ -158,7 +158,7 @@ public class GameManagerScript : MonoBehaviour
         }
         sceneMasterScript.UnloadScene();
         pauseGameButton.gameObject.SetActive(false);
-        MainManuPanel = Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
+        Instantiate(prefabMainMenuPanel, GameObject.FindObjectOfType<Canvas>().GetComponent<Transform>());
         sceneMasterScript.LoadMainMenuScene();
         if (endGamePanel != null) Destroy(endGamePanel);
     }

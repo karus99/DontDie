@@ -21,12 +21,12 @@ public class LivesShowManager : MonoBehaviour
     }
 
     //TODO: change to creating images during runtime not creating and disabling
-    public void ShowLives(int count)
+    public void ShowLives(int count, bool lostLive)
     {
         switch (count)
         {
             case 0:
-                if(count == 0)
+                if(count == 0 && lostLive)
                 {
                     lives[0].GetComponent<Animator>().SetBool("isDestroying", true);
                 }
@@ -37,7 +37,7 @@ public class LivesShowManager : MonoBehaviour
                 }
                 goto case 1;
             case 1:
-                if (count == 1)
+                if (count == 1 && lostLive)
                 {
                     lives[1].GetComponent<Animator>().SetBool("isDestroying", true);
                 }
@@ -48,7 +48,7 @@ public class LivesShowManager : MonoBehaviour
                 }
                 goto case 2;
             case 2:
-                if (count == 2)
+                if (count == 2 && lostLive)
                 {
                     lives[2].GetComponent<Animator>().SetBool("isDestroying", true);
                 }

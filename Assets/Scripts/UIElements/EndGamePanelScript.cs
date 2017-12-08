@@ -12,6 +12,7 @@ public class EndGamePanelScript : MonoBehaviour
     public AudioClip loseSound;
     public Text txt_playerPoints;
     public Text txt_levelPoints;
+    public RawImage ri_titleBackground;
 
     private GameManagerScript gameManager;
     private int levelPoints;
@@ -20,6 +21,7 @@ public class EndGamePanelScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
     }
 
     public void SetAll(string title, string content, GameManagerScript gameManager, bool conditionMet, int livesLeft, bool liveLost, int levelPoints,int playerPoints)
@@ -35,6 +37,7 @@ public class EndGamePanelScript : MonoBehaviour
         if (conditionMet)
         {
             txt_title.text = "Nice!";
+            ri_titleBackground.color = new Color(0.35f, 0.52f, 0.38f); // green color.
             txt_content.text = "";
             GetComponent<AudioSource>().clip = winSound;
 
@@ -42,11 +45,12 @@ public class EndGamePanelScript : MonoBehaviour
         else
         {
             txt_title.text = "Oh no!";
+            ri_titleBackground.color = new Color(0.63f, 0.28f, 0.28f); // red color.
             GetComponent<AudioSource>().clip = loseSound;
         }
         txt_content.text = content;
 
-        livesManager.ShowLives(livesLeft);
+        livesManager.ShowLives(livesLeft, !conditionMet);
         GetComponent<AudioSource>().Play();
         StartCoroutine(ShowPoints());
     }
