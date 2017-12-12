@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 4050420339034984}
   - component: {fileID: 212959278633209020}
   - component: {fileID: 61837852574166764}
-  - component: {fileID: 114209030188071022}
   - component: {fileID: 114760289985803992}
+  - component: {fileID: 114574627854881720}
   m_Layer: 0
   m_Name: arrow_up
   m_TagString: Untagged
@@ -563,17 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114209030188071022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1620436242109512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0.7241379, b: 0, a: 1}
+  steps: 20
 --- !u!114 &114331901638582998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,6 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0.7241379, b: 0, a: 1}
+  steps: 20
 --- !u!114 &114550262285766512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,6 +601,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adeace5312186ac4cbd5608885923f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114574627854881720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620436242109512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0.7241379, b: 0, a: 1}
+  steps: 20
 --- !u!114 &114740290038135220
 MonoBehaviour:
   m_ObjectHideFlags: 1

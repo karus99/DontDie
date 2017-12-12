@@ -4,15 +4,23 @@ using System.Collections.Generic;
 
 public class BlinkElementScript : MonoBehaviour
 {
-    private float currColor = 1.0f;
+    public Color targetColor = new Color(1.0f, 1.0f, 1.0f);
+    public int steps = 50;
+
+    private Color colorStep;
+
+    private Color baseColor;
+    private Color currColor;
     private bool dir = true;
-    private float colorStep=0.02f;
 
     private SpriteRenderer sRenderer;
     // Use this for initialization
     void Start()
     {
         sRenderer = this.GetComponent<SpriteRenderer>();
+        baseColor = currColor = sRenderer.color;
+        Color colorDiff = baseColor - targetColor;
+        colorStep = colorDiff / steps;
     }
 
     // Update is called once per frame
@@ -22,22 +30,23 @@ public class BlinkElementScript : MonoBehaviour
         {
             currColor += colorStep;
 
-            if (currColor >= 1.0f)
+            if (currColor.r >= baseColor.r && currColor.g >= baseColor.g && currColor.b >= baseColor.b)
             {
                 dir = !dir;
-                currColor = 1.0f;
+                currColor = baseColor;
             }
         }
         else
         {
             currColor -= colorStep;
 
-            if (currColor <= 0.5f)
+            if (currColor.r <= targetColor.r && currColor.g <= targetColor.g && currColor.b <= targetColor.b)
             {
                 dir = !dir;
-                currColor = 0.5f;
+                currColor = targetColor;
             }
         }
-        sRenderer.color = new Color(currColor, currColor, currColor);
+        Debug.Log(currColor.ToString() + " " + baseColor.ToString() + " " + targetColor.ToString());
+        sRenderer.color = currColor;
     }
 }

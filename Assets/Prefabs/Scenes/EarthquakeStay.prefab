@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 212114705460211962}
   - component: {fileID: 61405462165746900}
   - component: {fileID: 114520684571209904}
+  - component: {fileID: 114368581021609078}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
@@ -75,6 +76,7 @@ GameObject:
   - component: {fileID: 61470195985317258}
   - component: {fileID: 82334757016929050}
   - component: {fileID: 95415856422707176}
+  - component: {fileID: 114522079296151618}
   m_Layer: 0
   m_Name: Telephone
   m_TagString: Untagged
@@ -93,6 +95,7 @@ GameObject:
   - component: {fileID: 212755884395769084}
   - component: {fileID: 61551766703494460}
   - component: {fileID: 114363554637584768}
+  - component: {fileID: 114970868884801484}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -473,6 +476,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adeace5312186ac4cbd5608885923f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114368581021609078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1108681574529192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.6985294, g: 0.6985294, b: 0.6985294, a: 1}
+  steps: 15
 --- !u!114 &114520684571209904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,6 +500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adeace5312186ac4cbd5608885923f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114522079296151618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455017366424144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.6764706, g: 0.6764706, b: 0.6764706, a: 1}
+  steps: 15
 --- !u!114 &114621877876444238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -514,6 +543,19 @@ MonoBehaviour:
   pointsCountingType: 1
   pointsForLevel: 150
   levelTip: Stay
+--- !u!114 &114970868884801484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729649200212956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f2fb14f88d694c998a3d467436730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.72794116, g: 0.7493512, b: 0.7493512, a: 1}
+  steps: 15
 --- !u!212 &212114705460211962
 SpriteRenderer:
   m_ObjectHideFlags: 1
