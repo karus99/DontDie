@@ -18,10 +18,15 @@ public class EndGamePanelScript : MonoBehaviour
     private int levelPoints;
     private int currentlyOverallPoints;
     private int playerPoints;
+    private int livesLeft;
+    private bool liveLost;
+
+    private float buttonsDelay = 0.3f;
+
     // Use this for initialization
     void Start()
     {
-
+        button.gameObject.SetActive(false);
     }
 
     public void SetAll(string title, string content, GameManagerScript gameManager, bool conditionMet, int livesLeft, bool liveLost, int levelPoints,int playerPoints)
@@ -32,8 +37,9 @@ public class EndGamePanelScript : MonoBehaviour
         txt_levelPoints.text = levelPoints+"";
         txt_playerPoints.text = playerPoints+"";
         this.playerPoints = currentlyOverallPoints + levelPoints;
+        this.livesLeft = livesLeft;
+        this.liveLost = liveLost;
 
-        SetButton(livesLeft, liveLost);
         if (conditionMet)
         {
             txt_title.text = "Nice!";
@@ -58,6 +64,8 @@ public class EndGamePanelScript : MonoBehaviour
 
     private void SetButton(int livesLeft, bool liveLost)
     {
+        button.gameObject.SetActive(true);
+
         if (!liveLost || liveLost && livesLeft > 0)
         {
             button.GetComponentInChildren<Text>().text = "NEXT LEVEL";
@@ -88,6 +96,11 @@ public class EndGamePanelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        buttonsDelay -= Time.deltaTime;
 
+        if(buttonsDelay <= 0.0)
+        {
+            SetButton(livesLeft, liveLost);
+        }
     }
 }
