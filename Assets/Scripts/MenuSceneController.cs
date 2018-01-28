@@ -15,7 +15,7 @@ public class MenuSceneController : MonoBehaviour
         if(buttonStart != null)
             buttonStart.onClick.AddListener(delegate { StartGame(); });
         if (buttonExit != null)
-            buttonExit.onClick.AddListener(delegate { ExitGame(); });
+            buttonExit.onClick.AddListener(delegate { ShowLeaderboards(); });
     }
 
     void StartGame()
@@ -23,6 +23,10 @@ public class MenuSceneController : MonoBehaviour
         GameManagerScript gameManager = GameObject.FindObjectOfType<GameManagerScript>();
         gameManager.StartGame();
         Destroy(this.gameObject);
+    }
+
+    void ShowLeaderboards() {
+        GameObject.FindObjectOfType<GooglePlayScript>().ShowLeaderboards();
     }
 
     void ExitGame()

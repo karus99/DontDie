@@ -10,6 +10,7 @@ public class GooglePlayScript : MonoBehaviour {
 	void Start () {
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
         PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
         SingIn();
 
@@ -22,22 +23,34 @@ public class GooglePlayScript : MonoBehaviour {
             PlayGamesPlatform.Instance.Authenticate((bool success) => {
                 if (success)
                 {
-                    /// Signed in! Hooray!
+                    Debug.Log("Signed in to GooglePlay as " + PlayGamesPlatform.Instance.GetUserDisplayName());
                 }
                 else
                 {
-                    /// Not signed in. We'll want to show a sign in button
+                    Debug.Log("Error signing in to GooglePlay");
                 }
-            }, true);   /// <--- That "true" is very important!
+            }, false);   /// <--- That "true" is very important!
         }
         else
         {
             Debug.Log("We're already signed in");
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    public void ShowLeaderboards()
+    {
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI();
+        }
+        else {
+            Debug.Log("Error showing leaderboards. User not logged.");
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

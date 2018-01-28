@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthquakeStayScript: MonoBehaviour
+public class EarthquakeStayScript : MonoBehaviour
 {
     private float shakeAmount = 0.1f;
     Vector3 originalCameraPos;
     private GameObject mainCamera;
 
     void Start()
+    {
+
+    }
+
+    private void Awake()
     {
         GameObject sceneMaster = GameObject.FindGameObjectWithTag("SceneMaster");
         sceneMaster.GetComponent<SceneMasterScript>().SetConditionsState(true);

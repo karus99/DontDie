@@ -13,16 +13,20 @@ public class TornadoRunPlayerScript : MonoBehaviour
     float velocityStep = 0.12f;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        thisRigidbody2d = this.GetComponent<Rigidbody2D>();
+
+    }
+
+    private void Awake()
+    {
         thisAnimator = this.GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if (thisRigidbody2d.velocity.x > 0)
+        if (this.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
             thisAnimator.SetBool("isWalking", true);
         }
@@ -30,23 +34,23 @@ public class TornadoRunPlayerScript : MonoBehaviour
         {
             thisAnimator.SetBool("isWalking", false);
         }
-       // rigidbody2d.velocity = new Vector2(0, 0.1f);
+        // rigidbody2d.velocity = new Vector2(0, 0.1f);
     }
 
     private void FixedUpdate()
     {
-        if (thisRigidbody2d.velocity.x > 0)
+        if (this.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
-            float newVelocityX = thisRigidbody2d.velocity.x - velocityStep;
+            float newVelocityX = this.GetComponent<Rigidbody2D>().velocity.x - velocityStep;
             if (newVelocityX < 0) newVelocityX = 0;
-            thisRigidbody2d.velocity = new Vector2(newVelocityX, 0);
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocityX, 0);
         }
     }
 
     public void MoveLeft()
     {
-        float newVelocityX = thisRigidbody2d.velocity.x + velocityAdd;
+        float newVelocityX = this.GetComponent<Rigidbody2D>().velocity.x + velocityAdd;
         if (newVelocityX > maxVelocity) newVelocityX = maxVelocity;
-        thisRigidbody2d.velocity = new Vector2(newVelocityX, 0);
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocityX, 0);
     }
 }

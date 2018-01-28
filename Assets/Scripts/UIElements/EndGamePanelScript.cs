@@ -29,13 +29,13 @@ public class EndGamePanelScript : MonoBehaviour
         button.gameObject.SetActive(false);
     }
 
-    public void SetAll(string title, string content, GameManagerScript gameManager, bool conditionMet, int livesLeft, bool liveLost, int levelPoints,int playerPoints)
+    public void SetAll(string title, string content, GameManagerScript gameManager, bool conditionMet, int livesLeft, bool liveLost, int levelPoints, int playerPoints)
     {
         this.gameManager = gameManager;
         currentlyOverallPoints = playerPoints;
         this.levelPoints = levelPoints;
-        txt_levelPoints.text = levelPoints+"";
-        txt_playerPoints.text = playerPoints+"";
+        txt_levelPoints.text = levelPoints + "";
+        txt_playerPoints.text = playerPoints + "";
         this.playerPoints = currentlyOverallPoints + levelPoints;
         this.livesLeft = livesLeft;
         this.liveLost = liveLost;
@@ -60,7 +60,7 @@ public class EndGamePanelScript : MonoBehaviour
         GetComponent<AudioSource>().Play();
         StartCoroutine(ShowPoints());
     }
-    
+
 
     private void SetButton(int livesLeft, bool liveLost)
     {
@@ -69,11 +69,13 @@ public class EndGamePanelScript : MonoBehaviour
         if (!liveLost || liveLost && livesLeft > 0)
         {
             button.GetComponentInChildren<Text>().text = "NEXT LEVEL";
+            button.onClick.RemoveAllListeners();
             button.onClick.AddListener(delegate { gameManager.LoadNextScene(); });
         }
         else
         {
             button.GetComponentInChildren<Text>().text = "MAIN MENU";
+            button.onClick.RemoveAllListeners();
             button.onClick.AddListener(delegate { gameManager.LoadMainMenuScene(); });
         }
     }
@@ -84,12 +86,13 @@ public class EndGamePanelScript : MonoBehaviour
         while (currentlyOverallPoints < playerPoints)
         {
             currentlyOverallPoints += pointIncrease;
-            if (currentlyOverallPoints > playerPoints) {
+            if (currentlyOverallPoints > playerPoints)
+            {
                 currentlyOverallPoints = playerPoints;
             }
             txt_playerPoints.text = currentlyOverallPoints + "";
             yield return new WaitForSeconds(0.03f);
-            
+
         }
     }
 
@@ -98,7 +101,7 @@ public class EndGamePanelScript : MonoBehaviour
     {
         buttonsDelay -= Time.deltaTime;
 
-        if(buttonsDelay <= 0.0)
+        if (buttonsDelay <= 0.0)
         {
             SetButton(livesLeft, liveLost);
         }
